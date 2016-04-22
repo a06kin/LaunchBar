@@ -18,7 +18,7 @@ def get_():
         item = item.split(';')
         friend_properties = {}
         if(len(item) == 2):
-	        friend_properties['title'] = item[0].strip()
+	        friend_properties['title'] = item[0].strip() if len(item[0].strip()) > 0 else item[1].strip()
 	        friend_properties['icon'] = 'com.skype.skype'
 	        friend_properties['subtitle'] = item[1].strip()
 	        friend_properties['action'] = 'default.py'
