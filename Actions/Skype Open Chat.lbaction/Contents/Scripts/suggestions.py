@@ -17,12 +17,13 @@ def get_():
     for item in text:
         item = item.split(';')
         friend_properties = {}
-        friend_properties['title'] = item[0].strip()
-        friend_properties['icon'] = 'com.skype.skype'
-        friend_properties['subtitle'] = item[1].strip()
-        friend_properties['action'] = 'default.py'
-        friend_properties['actionArgument'] = json.dumps(item[1].strip())
-        friends.append(friend_properties)
+        if(len(item) == 2):
+	        friend_properties['title'] = item[0].strip()
+	        friend_properties['icon'] = 'com.skype.skype'
+	        friend_properties['subtitle'] = item[1].strip()
+	        friend_properties['action'] = 'default.py'
+	        friend_properties['actionArgument'] = json.dumps(item[1].strip())
+	        friends.append(friend_properties)
 
     filtered_text = []
     for element in friends:
