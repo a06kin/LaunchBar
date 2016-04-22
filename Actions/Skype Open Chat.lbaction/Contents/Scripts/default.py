@@ -13,10 +13,12 @@ out, err = p.communicate()
 text = out.split(',')
 for item in text:
     item = item.split(';')
-    display_name = item[0].strip()
-    account_name = item[1].strip()
-    search_name = sys.argv[1]
-    match = re.search(account_name, search_name)
-    if match:
-        cmd = 'open skype:%s?chat' % account_name
-        p = Popen(cmd , shell=True, stdout=PIPE, stderr=PIPE)
+    if(len(item) == 2):
+	    display_name = item[0].strip()
+	    account_name = item[1].strip()
+	    search_name = sys.argv[1]
+	    match = re.search(account_name, search_name)
+	    if match:
+	        cmd = 'open skype:%s?chat' % account_name
+	        p = Popen(cmd , shell=True, stdout=PIPE, stderr=PIPE)
+	        break
